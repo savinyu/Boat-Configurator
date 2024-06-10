@@ -1,6 +1,6 @@
 import { Suspense } from "react";
 import {Headphone} from "../assets/Headphone";
-import { Float, useGLTF } from "@react-three/drei";
+import { ContactShadows, Float, useGLTF } from "@react-three/drei";
 import { useControls} from 'leva'
 
 export default function Experience(){
@@ -10,18 +10,26 @@ export default function Experience(){
         y: {value:-4,min:-1,max:1,step:0.01},
         z: {value:-4,min:-1,max:4,step:0.01} 
     })
+    const shadows = useControls("shadows",{ 
+        y: {value:-4,min:-5,max:0,step:0.01}
+    })
     return<>
         <Suspense fallback={null}>
             <Float 
-                floatIntensity={0.5}
-                rotationIntensity={0.1}
-                speed={0.5}
+                floatIntensity={2}
+                rotationIntensity={1}
+                speed={2}
             >
-                {/* <primitive object={model.scene}  scale={0.001} position={[headphone.x,headphone.y,headphone.z]}/> */}
-                <mesh position={[0,-5,-10]} scale={0.1} >
-                    <Headphone position={[0,-5,-4]}/>
+                <mesh scale={0.01} >
+                    <Headphone />
                 </mesh>
             </Float>
+            <ContactShadows 
+                position-y={shadows.y}
+                scale={8}
+                opacity={1}
+                blur={2.4}
+            />
             
         </Suspense>
     </>
