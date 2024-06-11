@@ -6,12 +6,10 @@ import {Perf} from 'r3f-perf'
 import Experience from './componenets/Experience'
 import Configurator from './componenets/Configurator'
 import './App.css'
-import { CustomisationProvider } from './contexts/Customisation'
+import { CustomisationProvider, useCustomisation } from './contexts/Customisation'
 
 function App() {
 
-  const [rotate360,setRotate360] = useState(true);
-  
   return (
     <CustomisationProvider>
       <div className="App">
@@ -30,13 +28,14 @@ function App() {
           <Perf position="bottom-left" />
 
           {/* Lighting */}
-          <ambientLight intensity={1}/>
+          <ambientLight intensity={2}/>
+          <directionalLight position={[4,0,0]} intensity={5}/>
           <Environment preset='studio' environmentIntensity={2}/>
 
           {/* Rotation Controls  */}
           <OrbitControls 
             makeDefault
-            enabled={rotate360}
+            enabled={true}
             enableDamping={true}
             enablePan={false}
             enableZoom={true}
@@ -46,7 +45,7 @@ function App() {
             minDistance={5}
           />
           <PresentationControls
-            enabled={!rotate360}
+            enabled={false}
             global={true}
             cursor={true}
             config={ { mass: 2, tension: 400 } }

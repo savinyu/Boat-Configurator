@@ -9,6 +9,7 @@ Title: Microsoft Headphones Surface 2
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { useControls } from 'leva'
+import { useCustomisation } from '../contexts/Customisation';
 
 export function Headphone(props) {
   const rotate = useControls("rotate",{
@@ -16,6 +17,8 @@ export function Headphone(props) {
     y:{value:0,min:-10,max:10,step:0.001},
     z:{value:-12.55,min:-20,max:10,step:0.001},
   })
+  const {earcupColor, setEarcupColor, headbandColor, setHeadbandColor} = useCustomisation();
+
   const { nodes, materials } = useGLTF('/microsoft_headphones_surface_2.glb')
   return (
     <group {...props} dispose={null} position={[0, 0,0]}>
@@ -44,7 +47,7 @@ export function Headphone(props) {
                 material={materials['1001']}
                 position={[0, -0.607, 0.422]}
                 userData={{ name: 'defaultMaterial' }}
-              />
+              ><meshPhysicalMaterial color={headbandColor}/></mesh>
             </group>
             <group
               name="direita"
@@ -171,7 +174,7 @@ export function Headphone(props) {
                     position={[37.548, 27.226, 0]}
                     rotation={[Math.PI / 2, -0.952, Math.PI / 2]}
                     userData={{ name: 'defaultMaterial' }}
-                  />
+                  ><meshPhysicalMaterial  color={earcupColor}/></mesh>
                   <mesh
                     name="defaultMaterial_15"
                     castShadow
@@ -201,7 +204,7 @@ export function Headphone(props) {
                 position={[1.728, 437.225, 0.86]}
                 rotation={[1.571, 0.539, -1.571]}
                 userData={{ name: 'defaultMaterial' }}
-              />
+              ><meshPhysicalMaterial color={headbandColor}/></mesh>
               <mesh
                 name="defaultMaterial_2"
                 castShadow
@@ -273,7 +276,7 @@ export function Headphone(props) {
                     position={[0, -40.307, -0.017]}
                     rotation={[-Math.PI / 2, 0, Math.PI / 2]}
                     userData={{ name: 'defaultMaterial' }}
-                  />
+                  ><meshPhysicalMaterial color={earcupColor}/></mesh>
                   <mesh
                     name="defaultMaterial_26"
                     castShadow
@@ -324,7 +327,7 @@ export function Headphone(props) {
                 position={[3.606, 421.834, -35.021]}
                 rotation={[1.571, -0.539, 1.572]}
                 userData={{ name: 'defaultMaterial' }}
-              />
+              ><meshPhysicalMaterial  color={headbandColor}/></mesh>
               <mesh
                 name="defaultMaterial_17"
                 castShadow

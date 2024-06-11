@@ -8,7 +8,7 @@ import {  earcupColors, headbandColors, useCustomisation } from '../contexts/Cus
 
 
 const Configurator = () =>{
-    const colors = ['grey', 'green', 'red', 'blue', 'brown', 'purple']
+    
     const {earcupColor, setEarcupColor, headbandColor, setHeadbandColor} = useCustomisation();
     const snap = useSnapshot(state)
 
@@ -28,54 +28,56 @@ const Configurator = () =>{
     <main>
         <div className='container'>
             <div>
-            <div className='title-container'>
-                <h2>CONFIGURE YOUR HEADPHONES</h2>
-                <p>PLUG INTO NIRVANA</p>
-            </div>
-            <div className='grid'>
-                <hr />
-                <div className='content-container'>
-                    <div onClick={openHideBig}>
-                        <div>
-                            <h3>Headband</h3>
+                <div className='title-container'>
+                    <h2>CONFIGURE YOUR HEADPHONES</h2>
+                    <p>PLUG INTO NIRVANA</p>
+                </div>
+                <div className='grid'>
+                    <hr />
+                    <div className='content-container'>
+                        <div onClick={openHideBig}>
+                            <div>
+                                <h3>Headband</h3>
+                            </div>
+                        </div>
+                        <div className='color-container'>
+                            {headbandColors.map((value,index) => (
+                                <button
+                                    key={index}
+                                    className={snap.color === value.color ? 'active' : ''}
+                                    onClick={() => {
+                                        state.color = value.color;
+                                        setHeadbandColor(value.color);
+                                    }}
+                                >
+                                    {value.name}
+                                </button>
+                            ))}
                         </div>
                     </div>
-                    <div className='color-container'>
-                        {headbandColors.map((value,index) => (
-                            <button
-                                key={index}
-                                className={snap.color === value.color ? 'active' : ''}
-                                onClick={() => {
-                                    state.color = value.color;
-                                }}
-                            >
-                            {value.name}
-                            </button>
-                        ))}
-                    </div>
-                </div>
-                <hr />
-                <div className='content-container'>
-                    <div onClick={openHideBig}>
-                        <div>
-                            <h3>Earcups</h3>
+                    <hr />
+                    <div className='content-container'>
+                        <div onClick={openHideBig}>
+                            <div>
+                                <h3>Earcups</h3>
+                            </div>
+                        </div>
+                        <div className='color-container'>
+                            {earcupColors.map((value,index) => (
+                                <button
+                                    key={index}
+                                    className={snap.color === value.color ? 'active' : ''}
+                                    onClick={() => {
+                                        state.color = value.color;
+                                        setEarcupColor(value.color);
+                                    }}
+                                >
+                                    {value.name}
+                                </button>
+                            ))}
                         </div>
                     </div>
-                    <div className='color-container'>
-                        {earcupColors.map((value,index) => (
-                            <button
-                                key={index}
-                                className={snap.color === value.color ? 'active' : ''}
-                                onClick={() => {
-                                    state.color = value.color;
-                                }}
-                            >
-                            {value.name}
-                            </button>
-                        ))}
-                    </div>
                 </div>
-            </div>
             </div>
         </div>
     </main>

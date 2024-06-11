@@ -32,7 +32,7 @@ export const earcupColors = [
         name:"Black"
     },
     {
-        color:"#ececec",
+        color:"#E1D9D1",
         name:"White"
     }
 ];
@@ -67,7 +67,7 @@ export const headbandColors = [
         name:"Black"
     },
     {
-        color:"#ececec",
+        color:"#E1D9D1",
         name:"White"
     }
 ];
@@ -76,11 +76,14 @@ export const headbandColors = [
 export const CustomisationProvider = (props)=>{
     const [earcupColor, setEarcupColor] = useState(earcupColors[6].color);
     const [headbandColor, setHeadbandColor] = useState(headbandColors[6].color);
+    const [rotate360,setRotate360] = useState(true);
     return (<CustomisationContext.Provider value={{
         earcupColor,
         setEarcupColor,
         headbandColor,
-        setHeadbandColor
+        setHeadbandColor,
+        rotate360,
+        setRotate360
     }}>
         {props.children}
     </CustomisationContext.Provider>
