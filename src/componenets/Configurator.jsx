@@ -2,13 +2,14 @@ import { useSnapshot } from 'valtio'
 import { HexColorPicker } from 'react-colorful'
 import { useState } from 'react'
 import { state } from './state.jsx'
+import {  earcupColors, headbandColors, useCustomisation } from '../contexts/Customisation.jsx'
 
 
 
 
 const Configurator = () =>{
     const colors = ['grey', 'green', 'red', 'blue', 'brown', 'purple']
-
+    const {earcupColor, setEarcupColor, headbandColor, setHeadbandColor} = useCustomisation();
     const snap = useSnapshot(state)
 
     function openHideBig(e) {
@@ -40,15 +41,15 @@ const Configurator = () =>{
                         </div>
                     </div>
                     <div className='color-container'>
-                        {colors.map((color) => (
+                        {headbandColors.map((value,index) => (
                             <button
-                                key={color}
-                                className={snap.color === color ? 'active' : ''}
+                                key={index}
+                                className={snap.color === value.color ? 'active' : ''}
                                 onClick={() => {
-                                    state.color = color
+                                    state.color = value.color;
                                 }}
                             >
-                            {color}
+                            {value.name}
                             </button>
                         ))}
                     </div>
@@ -61,15 +62,15 @@ const Configurator = () =>{
                         </div>
                     </div>
                     <div className='color-container'>
-                        {colors.map((color) => (
+                        {earcupColors.map((value,index) => (
                             <button
-                                key={color}
-                                className={snap.color === color ? 'active' : ''}
+                                key={index}
+                                className={snap.color === value.color ? 'active' : ''}
                                 onClick={() => {
-                                    state.color = color
+                                    state.color = value.color;
                                 }}
                             >
-                            {color}
+                            {value.name}
                             </button>
                         ))}
                     </div>
