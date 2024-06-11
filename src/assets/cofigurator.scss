@@ -1,0 +1,156 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
+@import './variables.scss';
+@import './reset.scss';
+@import './base.scss';
+main {
+	pointer-events: none;
+
+	position: fixed;
+	width: 100%;
+	height: 100%;
+	z-index: 3;
+	top: 0;
+
+    .container {
+		display: flex;
+		margin-top: 10vh;
+		justify-content: space-between;
+		> div {
+			pointer-events: all;
+			width: rem(20);
+           
+
+			.title-container {
+				h2 {
+					font-style: italic;
+					font-size: 2rem;
+					font-weight: 900;
+					color: $color-light;
+				}
+				p {
+					color: $color-light-darker;
+					font-family: 'Barlow Condensed';
+					font-size: 0.9rem;
+
+					line-height: 22px;
+
+					margin-top: 1rem;
+					margin-bottom: 1rem;
+				}
+			}
+			.grid {
+				display: grid;
+				grid-gap: rem(1);
+				overflow-y: scroll;
+				max-height: 60vh;
+				hr {
+					border: 0;
+					border-top: 1px solid $color-dark-lighter;
+				}
+				.content-container {
+					> div {
+						&:first-of-type {
+							display: flex;
+							justify-content: space-between;
+							cursor: pointer;
+							&::after {
+								content: '-';
+								font-size: 2.5rem;
+								font-weight: 100;
+								color: $color-light;
+								margin-right: rem(1);
+							}
+						}
+					}
+					h3 {
+						color: $color-light;
+					}
+					p {
+						color: $color-light-darker;
+						font-family: 'Barlow Condensed';
+						font-size: rem(0.9);
+						margin-top: rem(0.5);
+					}
+					// &:first-of-type {
+					// 	p {
+					// 		text-transform: capitalize;
+					// 	}
+					// }
+					&:last-of-type {
+						> div {
+							&:first-of-type {
+								cursor: text;
+								&::after {
+									all: unset;
+								}
+							}
+						}
+					}
+					&.active {
+						> div {
+							&:nth-child(1) {
+								&::after {
+									content: '+';
+								}
+							}
+							&:nth-child(2) {
+								margin-top: rem(1);
+								opacity: 1;
+							}
+						}
+					}
+					button {
+						width: 100%;
+
+						padding: rem(0.5) rem(1);
+
+						border-radius: 4px;
+
+						border: 1px solid $color-dark-lighter;
+						&.active {
+							border: 1px solid $color-light;
+							transition: all 0.2s $ease;
+							&:hover {
+								border: 1px solid $color-light;
+								color: $color-light;
+							}
+						}
+						&:hover {
+							transition: all 0.2s $ease;
+							border: 1px solid $color-light-darker;
+						}
+
+						img {
+							margin: auto;
+						}
+					}
+					.flex {
+						display: flex;
+						justify-content: space-between;
+						> p {
+							font-weight: 500;
+							font-size: 1rem;
+							color: $color-light;
+							font-family: 'Barlow', sans-serif;
+						}
+					}
+					.color-container {
+						display: grid;
+						grid-template-columns: repeat(3, 1fr);
+						grid-gap: rem(0.5);
+
+						max-height: 0;
+						overflow: hidden;
+						opacity: 0;
+						transition: all 0.4s $ease2;
+						button {
+							img {
+								margin: auto;
+							}
+						}
+					}
+				}
+			}
+		}
+    }
+}

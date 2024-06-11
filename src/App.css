@@ -1,3 +1,4 @@
+@import '/src/assets/cofigurator.scss';
 .App {
     top: 0;
     left: 0;
@@ -5,4 +6,7 @@
     height:100vh; 
     position: fixed;
     overflow: hidden;
+}
+canvas {
+    touch-action: none;
 }

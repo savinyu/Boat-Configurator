@@ -24,12 +24,7 @@ export default function Experience(){
                     <Headphone />
                 </mesh>
             </Float>
-            <ContactShadows 
-                position-y={shadows.y}
-                scale={8}
-                opacity={1}
-                blur={2.4}
-            />
+            
             
         </Suspense>
     </>
