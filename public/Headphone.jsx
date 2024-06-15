@@ -12,14 +12,9 @@ import { useControls } from 'leva'
 import { useCustomisation } from '../src/contexts/Customisation';
 
 export function Headphone(props) {
-  const rotate = useControls("rotate",{
-    x:{value:-265.45,min:-300,max:0,step:0.001},
-    y:{value:0,min:-10,max:10,step:0.001},
-    z:{value:-12.55,min:-20,max:10,step:0.001},
-  })
   const {earcupColor, setEarcupColor, headbandColor, setHeadbandColor} = useCustomisation();
 
-  const { nodes, materials } = useGLTF('/microsoft_headphones_surface_2.glb')
+  const { nodes, materials } = useGLTF('./microsoft_headphones_surface_2.glb')
   return (
     <group {...props} dispose={null} position={[0, 0,0]}>
       <group
@@ -345,4 +340,4 @@ export function Headphone(props) {
   )
 }
 
-useGLTF.preload('/microsoft_headphones_surface_2.glb')
+useGLTF.preload('./microsoft_headphones_surface_2.glb')
