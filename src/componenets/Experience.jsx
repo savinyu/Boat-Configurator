@@ -1,6 +1,6 @@
 import { Suspense } from "react";
-import {Headphone} from "../assets/Headphone";
-import { ContactShadows, Float, useGLTF } from "@react-three/drei";
+import {Headphone} from "../../public/Headphone";
+import {Float, useGLTF } from "@react-three/drei";
 import { useControls} from 'leva'
 
 export default function Experience(){

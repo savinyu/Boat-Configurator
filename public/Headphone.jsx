@@ -9,7 +9,7 @@ Title: Microsoft Headphones Surface 2
 import React, { useRef } from 'react'
 import { useGLTF } from '@react-three/drei'
 import { useControls } from 'leva'
-import { useCustomisation } from '../contexts/Customisation';
+import { useCustomisation } from '../src/contexts/Customisation';
 
 export function Headphone(props) {
   const rotate = useControls("rotate",{
