@@ -1,21 +1,14 @@
-import { useSnapshot } from 'valtio'
-import { HexColorPicker } from 'react-colorful'
-import { useState } from 'react'
-import { state } from './state.jsx'
 import {  earcupColors, headbandColors, useCustomisation } from '../contexts/Customisation.jsx'
-
-
 
 
 const Configurator = () =>{
     
-    const {earcupColor, setEarcupColor, headbandColor, setHeadbandColor} = useCustomisation();
-    const snap = useSnapshot(state)
+    const {earcupColor, setEarcupColor, headbandColor, setHeadbandColor,setHeadbandPosition,setEarcupPosition} = useCustomisation();
 
     function openHideBig(e) {
 		const p = e.currentTarget.nextElementSibling
 		e.currentTarget.parentNode.classList.toggle('active')
-		p.offsetHeight === 0 ? (p.style.maxHeight = `150px`) : (p.style.maxHeight = 0)
+		p.offsetHeight === 0 ? (p.style.maxHeight = `200px`) : (p.style.maxHeight = 0)
 	}
 	function openHide(e) {
 		const p = e.currentTarget.nextElementSibling
@@ -44,10 +37,10 @@ const Configurator = () =>{
                             {headbandColors.map((value,index) => (
                                 <button
                                     key={index}
-                                    className={snap.color === value.color ? 'active' : ''}
+                                    className={`color-${value.name}${value.color == headbandColor ? ' active' : ''}`}
                                     onClick={() => {
-                                        state.color = value.color;
                                         setHeadbandColor(value.color);
+                                        setHeadbandPosition(true);
                                     }}
                                 >
                                     {value.name}
@@ -66,10 +59,10 @@ const Configurator = () =>{
                             {earcupColors.map((value,index) => (
                                 <button
                                     key={index}
-                                    className={snap.color === value.color ? 'active' : ''}
+                                    className={`color-${value.name}${value.color == earcupColor ? ' active' : ''}`}
                                     onClick={() => {
-                                        state.color = value.color;
                                         setEarcupColor(value.color);
+                                        setEarcupPosition(true);
                                     }}
                                 >
                                     {value.name}
@@ -77,6 +70,7 @@ const Configurator = () =>{
                             ))}
                         </div>
                     </div>
+                    <hr/>
                 </div>
             </div>
         </div>

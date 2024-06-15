@@ -1,4 +1,4 @@
-import { createContext, useContext, useState } from "react";
+import { createContext, useContext, useRef, useState } from "react";
 
 const CustomisationContext = createContext({});
 
@@ -8,23 +8,15 @@ export const earcupColors = [
         name:"Brown"
     },
     {
-        color:"#1a5e1a",
+        color:"#013220",
         name:"Green"
     },
     {
-        color:"#659994",
+        color:"#24249c",
         name:"Blue"
     },
     {
-        color:"#896599",
-        name:"Mauve"
-    },
-    {
-        color:"#ffa500",
-        name:"Orange"
-    },
-    {
-        color:"#59555b",
+        color:"#adacac",
         name:"Grey"
     },
     {
@@ -32,8 +24,8 @@ export const earcupColors = [
         name:"Black"
     },
     {
-        color:"#E1D9D1",
-        name:"White"
+        color:"#808080",
+        name:"Silver"
     }
 ];
 
@@ -43,23 +35,15 @@ export const headbandColors = [
         name:"Brown"
     },
     {
-        color:"#1a5e1a",
+        color:"#013220",
         name:"Green"
     },
     {
-        color:"#659994",
+        color:"#24249c",
         name:"Blue"
     },
     {
-        color:"#896599",
-        name:"Mauve"
-    },
-    {
-        color:"#ffa500",
-        name:"Orange"
-    },
-    {
-        color:"#59555b",
+        color:"#adacac",
         name:"Grey"
     },
     {
@@ -67,23 +51,26 @@ export const headbandColors = [
         name:"Black"
     },
     {
-        color:"#E1D9D1",
-        name:"White"
+        color:"#808080",
+        name:"Silver"
     }
 ];
 
 
 export const CustomisationProvider = (props)=>{
-    const [earcupColor, setEarcupColor] = useState(earcupColors[6].color);
-    const [headbandColor, setHeadbandColor] = useState(headbandColors[6].color);
-    const [rotate360,setRotate360] = useState(true);
+    const [earcupColor, setEarcupColor] = useState(earcupColors[4].color);
+    const [headbandColor, setHeadbandColor] = useState(headbandColors[4].color);
+    const [headbandPosition,setHeadbandPosition] = useState(false);
+    const [earcupPosition,setEarcupPosition] = useState(false);
     return (<CustomisationContext.Provider value={{
         earcupColor,
         setEarcupColor,
         headbandColor,
         setHeadbandColor,
-        rotate360,
-        setRotate360
+        headbandPosition,
+        setHeadbandPosition,
+        earcupPosition,
+        setEarcupPosition
     }}>
         {props.children}
     </CustomisationContext.Provider>
