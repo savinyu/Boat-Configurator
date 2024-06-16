@@ -1,4 +1,7 @@
-import {  earcupColors, headbandColors, useCustomisation } from '../contexts/Customisation.jsx'
+import {  earcupColors,
+    headbandColors,
+    useCustomisation
+    } from '../contexts/Customisation.jsx'
 
 
 const Configurator = () =>{

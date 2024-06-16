@@ -1,4 +1,4 @@
-import { createContext, useContext, useRef, useState } from "react";
+import { createContext, useContext, useState } from "react";
 
 const CustomisationContext = createContext({});
 
@@ -62,6 +62,7 @@ export const CustomisationProvider = (props)=>{
     const [headbandColor, setHeadbandColor] = useState(headbandColors[4].color);
     const [headbandPosition,setHeadbandPosition] = useState(false);
     const [earcupPosition,setEarcupPosition] = useState(false);
+
     return (<CustomisationContext.Provider value={{
         earcupColor,
         setEarcupColor,

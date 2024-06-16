@@ -1,29 +1,18 @@
-import {Canvas, useThree} from '@react-three/fiber'
-import { ContactShadows, Environment, OrbitControls, PresentationControls } from '@react-three/drei'
-import { Suspense, useEffect, useRef, useState } from 'react'
-import { Leva } from 'leva'
+import {Canvas} from '@react-three/fiber'
+import { ContactShadows,
+  Environment, 
+  PresentationControls
+ } from '@react-three/drei'
+import { Suspense } from 'react'
 import {Perf} from 'r3f-perf'
 import Experience from './componenets/Experience'
 import Configurator from './componenets/Configurator'
-import './App.css'
-import { CustomisationProvider, useCustomisation } from './contexts/Customisation'
-import gsap from 'gsap'
+import { CustomisationProvider } from './contexts/Customisation'
 import CameraControls from './componenets/CameraControls'
+import './App.css'
 
 function App() {
-  // const cameraRef = useRef();
-  // const animateCamera = ()=>{
-  //   if(!cameraRef.current) return;
-  //   gsap.to(cameraRef.current.position,{
-  //     duration:2,
-  //     z:1,
-  //     y:8,
-  //     onUpdate:()=>{
-  //       cameraRef.current.lookAt(0,0,0);
-  //     },
-  //     ease: 'power3.inOut'
-  //   });
-  // };
+
   return (
     <CustomisationProvider>
       <div className="App">
@@ -71,9 +60,6 @@ function App() {
               />
 
         </Canvas>
-
-        {/* UI Editor  */}
-        <Leva collapsed={true}/>
 
         {/* Configurator  */}
         <Configurator/>
