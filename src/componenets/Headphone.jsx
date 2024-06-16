@@ -3,7 +3,7 @@ import { useGLTF } from '@react-three/drei'
 import { useCustomisation } from '../contexts/Customisation';
 
 export function Headphone(props) {
-  const {earcupColor, setEarcupColor, headbandColor, setHeadbandColor} = useCustomisation();
+  const {earcupColor, headbandColor} = useCustomisation();
 
   const { nodes, materials } = useGLTF('/microsoft_headphones_surface_2.glb')
   return (
@@ -33,7 +33,7 @@ export function Headphone(props) {
                 // material={materials['1001']}
                 position={[0, -0.607, 0.422]}
                 userData={{ name: 'defaultMaterial' }}
-              ><meshPhysicalMaterial {...materials['1001']} metalness={0} roughness={1} color={headbandColor}/></mesh>
+              ><meshStandardMaterial {...materials['1001']} metalness={0} roughness={1} color={headbandColor}/></mesh>
             </group>
             <group
               name="direita"
@@ -160,7 +160,7 @@ export function Headphone(props) {
                     position={[37.548, 27.226, 0]}
                     rotation={[Math.PI / 2, -0.952, Math.PI / 2]}
                     userData={{ name: 'defaultMaterial' }}
-                  ><meshPhysicalMaterial {...materials['1009']} metalness={0} roughness={1} color={earcupColor}/></mesh>
+                  ><meshStandardMaterial {...materials['1009']} metalness={0} roughness={1} color={earcupColor}/></mesh>
                   <mesh
                     name="defaultMaterial_15"
                     castShadow
@@ -262,11 +262,11 @@ export function Headphone(props) {
                     position={[0, -40.307, -0.017]}
                     rotation={[-Math.PI / 2, 0, Math.PI / 2]}
                     userData={{ name: 'defaultMaterial' }}
-                  ><meshPhysicalMaterial {...materials['1009']} metalness={0} roughness={1} color={earcupColor}/></mesh>
+                  ><meshStandardMaterial {...materials['1009']} metalness={0} roughness={1} color={earcupColor}/></mesh>
                   <mesh
                     name="defaultMaterial_26"
                     castShadow
-                    receiveShadow
+                    receiveShadowstandar
                     geometry={nodes.defaultMaterial_26.geometry}
                     material={materials['1010']}
                     position={[0, -2.971, 0.017]}

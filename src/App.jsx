@@ -1,7 +1,10 @@
 import {Canvas} from '@react-three/fiber'
 import { ContactShadows,
   Environment, 
-  PresentationControls
+  Lightformer, 
+  PresentationControls,
+  RandomizedLight,
+  Ring
  } from '@react-three/drei'
 import { Suspense } from 'react'
 import {Perf} from 'r3f-perf'
@@ -10,6 +13,7 @@ import Configurator from './componenets/Configurator'
 import { CustomisationProvider } from './contexts/Customisation'
 import CameraControls from './componenets/CameraControls'
 import './App.css'
+import { RectAreaLight } from 'three'
 
 function App() {
 
@@ -32,9 +36,10 @@ function App() {
 
           {/* Lighting */}
           <ambientLight intensity={20}/>
-          <directionalLight position={[4,0,0]} intensity={5}/>
-          <Environment preset='studio' environmentIntensity={2}/>
-
+          <directionalLight position={[0,10,5]} intensity={10}/>
+          <Environment preset='studio' environmentIntensity={3}>
+          <Lightformer form='ring' intensity={20} color={'white'} position={[0,8,10]} scale={[10,10]} rotation={[Math.PI/2,0,0]}/>
+          </Environment>
           <CameraControls/>
 
           <PresentationControls

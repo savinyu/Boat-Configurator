@@ -1,4 +1,5 @@
-import {  earcupColors,
+import {  CameraModes,
+    earcupColors,
     headbandColors,
     useCustomisation
     } from '../contexts/Customisation.jsx'
@@ -6,7 +7,7 @@ import {  earcupColors,
 
 const Configurator = () =>{
     
-    const {earcupColor, setEarcupColor, headbandColor, setHeadbandColor,setHeadbandPosition,setEarcupPosition} = useCustomisation();
+    const {earcupColor, setEarcupColor, headbandColor, setHeadbandColor,cameraMode,setCameraMode} = useCustomisation();
 
     function openHideBig(e) {
 		const p = e.currentTarget.nextElementSibling
@@ -43,7 +44,7 @@ const Configurator = () =>{
                                     className={`color-${value.name}${value.color == headbandColor ? ' active' : ''}`}
                                     onClick={() => {
                                         setHeadbandColor(value.color);
-                                        setHeadbandPosition(true);
+                                        setCameraMode(CameraModes.Headband);
                                     }}
                                 >
                                     {value.name}
@@ -65,7 +66,7 @@ const Configurator = () =>{
                                     className={`color-${value.name}${value.color == earcupColor ? ' active' : ''}`}
                                     onClick={() => {
                                         setEarcupColor(value.color);
-                                        setEarcupPosition(true);
+                                        setCameraMode(CameraModes.Earcup);
                                     }}
                                 >
                                     {value.name}

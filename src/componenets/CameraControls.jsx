@@ -1,44 +1,38 @@
 import { OrbitControls } from "@react-three/drei"
 import { useFrame } from "@react-three/fiber"
 import * as THREE from "three"
-import { useCustomisation } from "../contexts/Customisation"
+import { CameraModes, useCustomisation } from "../contexts/Customisation"
 import { useRef } from "react"
 
-const CameraPostions=[
-    {
+const cameraPositions = {
+    [CameraModes.Headband]:{
         position: new THREE.Vector3(0,8,4),
         target: new THREE.Vector3(0,0.5,0)
     },
-    {
+    [CameraModes.Earcup]:{
         position: new THREE.Vector3(0,0,5),
         target: new THREE.Vector3(0,-0.5,0)
     }
-]
+}
 
 
 export default function CameraControls(){
-    const {headbandPosition,setHeadbandPosition, earcupPosition, setEarcupPosition} = useCustomisation();
+    const { cameraMode, setCameraMode} = useCustomisation();
     const orbitControls = useRef();
 
     useFrame((state,delta)=>{
-        if(headbandPosition){
-            setEarcupPosition(false);
-            state.camera.position.lerp(CameraPostions[0].position,3*delta );
-            orbitControls.current.target.lerp(CameraPostions[0].target,3*delta );
+        if(cameraMode == CameraModes.FREE){
+            return;
         }
-        if(earcupPosition){
-            setHeadbandPosition(false);
-            state.camera.position.lerp(CameraPostions[1].position,3 * delta);
-            orbitControls.current.target.lerp(CameraPostions[1].target,3 * delta )
-        }
+        state.camera.position.lerp(cameraPositions[cameraMode].position, 3 * delta );
+        orbitControls.current.target.lerp(cameraPositions[cameraMode].target, 3 * delta );
     })
     return(
         <>
             <OrbitControls 
                 ref={orbitControls}
                 onStart={()=>{
-                    setHeadbandPosition(false);
-                    setEarcupPosition(false);
+                    setCameraMode(CameraModes.FREE)
                 }}
                 makeDefault
                 enabled={true}

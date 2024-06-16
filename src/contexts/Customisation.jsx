@@ -56,22 +56,25 @@ export const headbandColors = [
     }
 ];
 
+export const CameraModes ={
+    'FREE' :'FREE',
+    'Headband': 'Headband',
+    'Earcup':'Earcup'
+}
+
 
 export const CustomisationProvider = (props)=>{
     const [earcupColor, setEarcupColor] = useState(earcupColors[4].color);
     const [headbandColor, setHeadbandColor] = useState(headbandColors[4].color);
-    const [headbandPosition,setHeadbandPosition] = useState(false);
-    const [earcupPosition,setEarcupPosition] = useState(false);
+    const [cameraMode,setCameraMode] = useState(CameraModes.FREE)
 
     return (<CustomisationContext.Provider value={{
         earcupColor,
         setEarcupColor,
         headbandColor,
         setHeadbandColor,
-        headbandPosition,
-        setHeadbandPosition,
-        earcupPosition,
-        setEarcupPosition
+        cameraMode,
+        setCameraMode
     }}>
         {props.children}
     </CustomisationContext.Provider>
