@@ -35,9 +35,9 @@ function App() {
           <Perf position="bottom-left" />
 
           {/* Lighting */}
-          <ambientLight intensity={50}/>
+          <ambientLight intensity={100}/>
           <directionalLight position={[0,10,5]} intensity={10}/>
-          <Environment preset='studio' environmentIntensity={3}>
+          <Environment  environmentIntensity={6}>
           <Lightformer form='ring' intensity={20} color={'white'} position={[0,8,10]} scale={[10,10]} rotation={[Math.PI/2,0,0]}/>
           </Environment>
           <CameraControls/>

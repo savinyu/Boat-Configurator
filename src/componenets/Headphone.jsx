@@ -33,7 +33,7 @@ export function Headphone(props) {
                 // material={materials['1001']}
                 position={[0, -0.607, 0.422]}
                 userData={{ name: 'defaultMaterial' }}
-              ><meshStandardMaterial {...materials['1001']} metalness={0} roughness={1} color={headbandColor}/></mesh>
+              ><meshPhysicalMaterial {...materials['1001']} roughness={1} color={headbandColor}/></mesh>
             </group>
             <group
               name="direita"
@@ -48,10 +48,12 @@ export function Headphone(props) {
                   name="defaultMaterial_3"
                   castShadow
                   receiveShadow
-                  geometry={nodes.defaultMaterial_3.geometry}
-                  material={materials['1005']}
+                  geometry={nodes.defaultMaterial_3.geometry}  
+                  // material={materials['1005']}
                   userData={{ name: 'defaultMaterial' }}
-                />
+                >
+                  <meshPhysicalMaterial {...materials['1005']} roughness={2} color={headbandColor} />
+                </mesh>
                 <group
                   name="1006_hardware"
                   position={[-3.129, 25.07, 276.109]}
@@ -160,7 +162,7 @@ export function Headphone(props) {
                     position={[37.548, 27.226, 0]}
                     rotation={[Math.PI / 2, -0.952, Math.PI / 2]}
                     userData={{ name: 'defaultMaterial' }}
-                  ><meshStandardMaterial {...materials['1009']} metalness={0} roughness={1} color={earcupColor}/></mesh>
+                  ><meshPhysicalMaterial {...materials['1009']} roughness={2} color={earcupColor}/></mesh>
                   <mesh
                     name="defaultMaterial_15"
                     castShadow
@@ -190,7 +192,7 @@ export function Headphone(props) {
                 position={[1.728, 437.225, 0.86]}
                 rotation={[1.571, 0.539, -1.571]}
                 userData={{ name: 'defaultMaterial' }}
-              ><meshStandardMaterial {...materials['1002']} metalness={0} roughness={1} color={headbandColor}/></mesh>
+              ><meshPhysicalMaterial {...materials['1002']} roughness={1} color={headbandColor}/></mesh>
               <mesh
                 name="defaultMaterial_2"
                 castShadow
@@ -215,9 +217,11 @@ export function Headphone(props) {
                   castShadow
                   receiveShadow
                   geometry={nodes.defaultMaterial_18.geometry}
-                  material={materials['1005']}
+                  // material={materials['1005']}
                   userData={{ name: 'defaultMaterial' }}
-                />
+                >
+                  <meshPhysicalMaterial {...materials['1005']} roughness={2} color={headbandColor} />
+                </mesh>
                 <group
                   name="1008_volume_2"
                   position={[-1.497, -182.286, 42.198]}
@@ -262,7 +266,7 @@ export function Headphone(props) {
                     position={[0, -40.307, -0.017]}
                     rotation={[-Math.PI / 2, 0, Math.PI / 2]}
                     userData={{ name: 'defaultMaterial' }}
-                  ><meshStandardMaterial {...materials['1009']} metalness={0} roughness={1} color={earcupColor}/></mesh>
+                  ><meshPhysicalMaterial {...materials['1009']} roughness={2} color={earcupColor}/></mesh>
                   <mesh
                     name="defaultMaterial_26"
                     castShadow
@@ -313,7 +317,7 @@ export function Headphone(props) {
                 position={[3.606, 421.834, -35.021]}
                 rotation={[1.571, -0.539, 1.572]}
                 userData={{ name: 'defaultMaterial' }}
-              ><meshStandardMaterial {...materials['1003']} metalness={0} roughness={1} color={headbandColor}/></mesh>
+              ><meshPhysicalMaterial {...materials['1003']} roughness={1} color={headbandColor}/></mesh>
               <mesh
                 name="defaultMaterial_17"
                 castShadow
