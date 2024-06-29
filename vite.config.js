@@ -9,7 +9,7 @@ export default defineConfig({
   },
   preview:{
     // open: 'external',
-    host: 'localhost',
+    host: '0.0.0.0',
     port: 5433,
   },
   plugins: [react()],
