@@ -23,7 +23,13 @@ const Configurator = () =>{
 
     return <>
     <main>
+    <img src='/fr.png' style={{
+        width:"6rem",
+        height:"6rem",
+        padding:"1rem",
+    }} />
         <div className='container'>
+           
             <div>
                 <div className='title-container'>
                     <h2>CONFIGURE YOUR HEADPHONES</h2>
