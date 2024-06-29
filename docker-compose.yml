@@ -8,9 +8,9 @@ services:
 
     working_dir: /usr/cf
     ports:
-      - "5432:5432"
+      - "5433:5433"
     expose:
-      - 5432
+      - 5433
     volumes:
       - .:/usr/cf
       - /usr/cf/node_modules

@@ -20,7 +20,7 @@ COPY . .
 RUN npm run build
 
 # Expose the Vite dev server port
-EXPOSE 5432
+EXPOSE 5433
 
 # Start the Vite dev server
 CMD ["npm", "run", "preview"]
