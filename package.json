@@ -2,12 +2,14 @@
   "name": "boat-configurator",
   "private": true,
   "version": "0.0.0",
-  "type": "module",
   "scripts": {
     "dev": "vite",
     "build": "vite build",
     "lint": "eslint . --ext js,jsx --report-unused-disable-directives --max-warnings 0",
-    "preview": "vite preview"
+    "preview": "vite preview",
+    "start": "cross-env NODE_ENV=development webpack-dev-server --open",
+    "dx": "webpack --mode development",
+    "build-prod": "webpack --mode production"
   },
   "dependencies": {
     "@react-three/drei": "^9.106.0",
@@ -19,16 +21,30 @@
     "react-dom": "^18.2.0",
     "sass": "^1.77.4",
     "scss": "^0.2.4",
-    "valtio": "^1.13.2"
+    "valtio": "^1.13.2",
+    "vite": "^5.2.0"
   },
   "devDependencies": {
+    "@babel/core": "^7.24.7",
+    "@babel/preset-env": "^7.24.7",
+    "@babel/preset-react": "^7.24.7",
+    "@babel/register": "^7.24.6",
+    "@babel/runtime": "^7.24.7",
     "@types/react": "^18.2.66",
     "@types/react-dom": "^18.2.22",
     "@vitejs/plugin-react": "^4.2.1",
+    "@webpack-cli/generators": "^3.0.7",
+    "clean-webpack-plugin": "^4.0.0",
+    "dotenv-webpack": "^8.1.0",
     "eslint": "^8.57.0",
-    "eslint-plugin-react": "^7.34.1",
-    "eslint-plugin-react-hooks": "^4.6.0",
-    "eslint-plugin-react-refresh": "^0.4.6",
-    "vite": "^5.2.0"
+    "prettier": "^3.3.2",
+    "pretty-quick": "^4.0.0",
+    "sass-loader": "^14.2.1",
+    "style-loader": "^4.0.0",
+    
+    "webpack": "^5.92.1",
+    "webpack-cli": "^5.1.4",
+    "webpack-dev-server": "^5.0.4",
+    "webpack-merge": "^5.10.0"
   }
 }
